@@ -10,7 +10,6 @@ GROUP_KEY = ''
 
 if os.environ.get('API_KEY', '') != '':
 	API_KEY = os.environ['API_KEY']
-	print(API_KEY)
 if os.environ.get('API_SECRET', '') != '':
 	API_SECRET = os.environ['API_SECRET']
 if os.environ.get('BOT_KEY', '') != '':
