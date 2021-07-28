@@ -35,8 +35,9 @@ jobs:
       - name: Run sign
         env:
           USER_AGENT: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:87.0) Gecko/20100101 Firefox/87.0'
-          OS_COOKIE: ${{ secrets.OS_COOKIE }}
-          PUSH_CONFIG: ${{ secrets.PUSH_CONFIG }}
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          API_KEY: ${{ secrets.API_KEY }}
+          API_SECRET: ${{ secrets.API_SECRET }}
+          BOT_KEY: ${{ secrets.BOT_KEY }}
+          GROUP_KEY: ${{ secrets.GROUP_KEY }}
         run: |
           python3 ./bot.py
