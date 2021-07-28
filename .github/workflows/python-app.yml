@@ -1,6 +1,7 @@
 on:
   schedule:
-    - cron: "01 16 * * *"  # Minute/Hour/Day/Month/Weekday (UTC)
+    - cron: "58 19 * * *"  # Minute/Hour/Day/Month/Weekday (UTC)
+    - cron: "58 09 * * *"  # Minute/Hour/Day/Month/Weekday (UTC)
   workflow_dispatch:
 
 env:
