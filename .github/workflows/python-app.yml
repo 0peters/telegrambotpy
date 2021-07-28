@@ -1,0 +1,42 @@
+on:
+  schedule:
+    - cron: "01 16 * * *"  # Minute/Hour/Day/Month/Weekday (UTC)
+  workflow_dispatch:
+
+env:
+  RUN_ENV: 'prod'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # if: github.ref == 'refs/heads/master'
+
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          # ref: master
+
+      - name: Set up python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Random sleep
+        if: github.event_name == 'schedule'
+        run: sleep $(shuf -i 10-300 -n 1)
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run sign
+        env:
+          USER_AGENT: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:87.0) Gecko/20100101 Firefox/87.0'
+          OS_COOKIE: ${{ secrets.OS_COOKIE }}
+          PUSH_CONFIG: ${{ secrets.PUSH_CONFIG }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          python3 ./bot.py
