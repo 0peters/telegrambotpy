@@ -1,4 +1,5 @@
 import telebot
+import os
 
 from binance import Client, ThreadedWebsocketManager, ThreadedDepthCacheManager
 
