@@ -3,11 +3,18 @@ import os
 
 from binance import Client, ThreadedWebsocketManager, ThreadedDepthCacheManager
 
+#ATENÇÃO: NÃO DECLARAR ESTAS VARIAVEIS PUBLICAMENTE! USAR SECRETS
+
+#API KEY da Binance (Gerado dentro do site da mesma)
 API_KEY = ''
+#API SECRET da Binance (Gerado dentro do site da mesma)
 API_SECRET = ''
+#KEY do BOT (obitida com o botfather no Telegram)
 BOT_KEY = ''
+#KEY do grupo onde a mensagem será enviada (obitida em https://api.telegram.org/bot<BOT_KEY>/getUpdates)
 GROUP_KEY = ''
 
+#Coletando Variaveis do Ambiente (Criadas em Settings>Secrets)
 if os.environ.get('API_KEY', '') != '':
 	API_KEY = os.environ['API_KEY']
 if os.environ.get('API_SECRET', '') != '':
@@ -23,6 +30,8 @@ bot = telebot.TeleBot(BOT_KEY)
 client = Client(api_key, api_secret)
 
 txt_price = ""
+
+#Pegando todas as cotações e selecionando apenas as necessárias e enviando ao grupo
 prices = client.get_all_tickers()
 for i in prices:
 	moeda = i['symbol'][-3:]
