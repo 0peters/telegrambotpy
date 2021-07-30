@@ -1,3 +1,5 @@
+name: "Envio de Cotação Cripto"
+
 on:
   schedule:
     - cron: "58 19 * * *"  # Minute/Hour/Day/Month/Weekday (UTC)
