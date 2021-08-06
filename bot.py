@@ -47,6 +47,9 @@ for i in prices:
 		if(cripto=="ADA"):
 			criptoName = "Cardano"
 			txt_price += cripto + " (" +criptoName+ ")" +" = R$ "+ ('%.2f' % round(float(i['price']),2)) + "\n"
+		if(cripto=="XRP"):
+			criptoName = "Ripple"
+			txt_price += cripto + " (" +criptoName+ ")" +" = R$ "+ ('%.2f' % round(float(i['price']),2)) + "\n"
 bot.send_message(GROUP_KEY, txt_price)
 
 #bot.polling()
