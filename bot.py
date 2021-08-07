@@ -51,6 +51,6 @@ for i in prices:
 			criptoName = "Ripple"
 			txt_price += cripto + " (" +criptoName+ ")" +" = R$ "+ ('%.2f' % round(float(i['price']),2)) + "\n"
 groups_list = GROUP_KEY.split('#')
-for i in range(len(cookie_list)):
+for i in range(len(groups_list)):
 	bot.send_message(groups_list[i], txt_price)
 #bot.polling()
