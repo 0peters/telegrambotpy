@@ -50,6 +50,7 @@ for i in prices:
 		if(cripto=="XRP"):
 			criptoName = "Ripple"
 			txt_price += cripto + " (" +criptoName+ ")" +" = R$ "+ ('%.2f' % round(float(i['price']),2)) + "\n"
-bot.send_message(GROUP_KEY, txt_price)
-
+groups_list = GROUP_KEY.split('#')
+for i in range(len(cookie_list)):
+	bot.send_message(groups_list[i], txt_price)
 #bot.polling()
