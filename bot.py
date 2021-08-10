@@ -29,7 +29,7 @@ api_secret = API_SECRET
 bot = telebot.TeleBot(BOT_KEY)
 client = Client(api_key, api_secret)
 
-txt_price = "Cotação de algumas criptomoedas interessantes:\n\n"
+txt_price = "Cotação Crypto Binance:\n\n"
 
 #Pegando todas as cotações e selecionando apenas as necessárias e enviando ao grupo
 prices = client.get_all_tickers()
