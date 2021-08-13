@@ -21,7 +21,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Run sign
+    - name: Run bot
       env:
         USER_AGENT: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:87.0) Gecko/20100101 Firefox/87.0'
         API_KEY: ${{ secrets.API_KEY }}
