@@ -30,7 +30,7 @@ api_secret = API_SECRET
 bot = telebot.TeleBot(BOT_KEY)
 client = Client(api_key, api_secret)
 
-txt_price = "Cotação Crypto Binance:\n\n"
+txt_price = "Cotação Crypto Binance:\n\n+ variação no dia\n\n"
 
 #Pegando todas as cotações e selecionando apenas as necessárias e enviando ao grupo
 prices = client.get_all_tickers()
@@ -44,16 +44,28 @@ for i in prices:
 			criptoInfo = client.get_ticker(symbol=i['symbol'])
 			json_str = json.dumps(criptoInfo)
 			criptoInfo = json.loads(json_str)
-			txt_price += ('%.2f' % round(float(criptoInfo['priceChangePercent']),2)) + " "
+			txt_price += ('%.2f' % round(float(criptoInfo['priceChangePercent']),2)) + "% "
 			txt_price += cripto + " (" +criptoName+ ")" +" = R$ "+ ('%.2f' % round(float(i['price']),2)) + "\n"
 		if(cripto=="ETH"):
 			criptoName = "Ethereum"
+			criptoInfo = client.get_ticker(symbol=i['symbol'])
+			json_str = json.dumps(criptoInfo)
+			criptoInfo = json.loads(json_str)
+			txt_price += ('%.2f' % round(float(criptoInfo['priceChangePercent']),2)) + "% "
 			txt_price += cripto + " (" +criptoName+ ")" +" = R$ "+ ('%.2f' % round(float(i['price']),2)) + "\n"
 		if(cripto=="ADA"):
 			criptoName = "Cardano"
+			criptoInfo = client.get_ticker(symbol=i['symbol'])
+			json_str = json.dumps(criptoInfo)
+			criptoInfo = json.loads(json_str)
+			txt_price += ('%.2f' % round(float(criptoInfo['priceChangePercent']),2)) + "% "
 			txt_price += cripto + " (" +criptoName+ ")" +" = R$ "+ ('%.2f' % round(float(i['price']),2)) + "\n"
 		if(cripto=="XRP"):
 			criptoName = "Ripple"
+			criptoInfo = client.get_ticker(symbol=i['symbol'])
+			json_str = json.dumps(criptoInfo)
+			criptoInfo = json.loads(json_str)
+			txt_price += ('%.2f' % round(float(criptoInfo['priceChangePercent']),2)) + "% "
 			txt_price += cripto + " (" +criptoName+ ")" +" = R$ "+ ('%.2f' % round(float(i['price']),2)) + "\n"
 groups_list = GROUP_KEY.split('#')
 for i in range(len(groups_list)):
