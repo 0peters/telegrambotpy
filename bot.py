@@ -42,7 +42,8 @@ for i in prices:
 		if(cripto=="BTC"):
 			criptoName = "Bitcoin"
 			criptoInfo = client.get_ticker(symbol=i['symbol'])
-			criptoInfo = json.loads(criptoInfo)
+			json_str = json.dumps(criptoInfo)
+			criptoInfo = json.loads(json_str)
 			txt_price += ('%.2f' % round(float(criptoInfo['criptoInfo']),2)) +" "+ cripto + " (" +criptoName+ ")" +" = R$ "+ ('%.2f' % round(float(i['price']),2)) + "\n"
 		if(cripto=="ETH"):
 			criptoName = "Ethereum"
