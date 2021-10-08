@@ -45,7 +45,8 @@ for i in prices:
 			json_str = json.dumps(criptoInfo)
 			criptoInfo = json.loads(json_str)
 			print(criptoInfo
-			txt_price += ('%.2f' % round(float(criptoInfo['priceChangePercent']),2)) +" "+ cripto + " (" +criptoName+ ")" +" = R$ "+ ('%.2f' % round(float(i['price']),2)) + "\n"
+			txt_price += ('%.2f' % round(float(criptoInfo['priceChangePercent']),2)) + " "
+			txt_price += cripto + " (" +criptoName+ ")" +" = R$ "+ ('%.2f' % round(float(i['price']),2)) + "\n"
 		if(cripto=="ETH"):
 			criptoName = "Ethereum"
 			txt_price += cripto + " (" +criptoName+ ")" +" = R$ "+ ('%.2f' % round(float(i['price']),2)) + "\n"
