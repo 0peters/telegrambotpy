@@ -44,7 +44,8 @@ for i in prices:
 			criptoInfo = client.get_ticker(symbol=i['symbol'])
 			json_str = json.dumps(criptoInfo)
 			criptoInfo = json.loads(json_str)
-			txt_price += ('%.2f' % round(float(criptoInfo['criptoInfo']),2)) +" "+ cripto + " (" +criptoName+ ")" +" = R$ "+ ('%.2f' % round(float(i['price']),2)) + "\n"
+			print(criptoInfo
+			txt_price += ('%.2f' % round(float(criptoInfo['priceChangePercent']),2)) +" "+ cripto + " (" +criptoName+ ")" +" = R$ "+ ('%.2f' % round(float(i['price']),2)) + "\n"
 		if(cripto=="ETH"):
 			criptoName = "Ethereum"
 			txt_price += cripto + " (" +criptoName+ ")" +" = R$ "+ ('%.2f' % round(float(i['price']),2)) + "\n"
