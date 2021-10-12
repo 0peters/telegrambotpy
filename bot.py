@@ -79,6 +79,7 @@ for i in range(len(groups_list)):
 	bot.send_message(groups_list[i], txt_price)
 	
 text_file = open("test.txt", "w")
-text_file.write(result)
+text_file.write(txt_price)
 text_file.close()
+
 #bot.polling()
