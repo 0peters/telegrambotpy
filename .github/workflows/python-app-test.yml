@@ -34,17 +34,17 @@ jobs:
     - name: Commit files
       id: commit
       run: |
-        git config --local user.email ${{ secrets.GITH_EMAIL }}
-        git config --local user.name "0peters"
         if [-n "$(git status -s)"]; then
-           git add --all
-        fi
-        if [-z "$(git status --porcelain)"]; then
-           echo "::set-output name=push::false"
-        else
-           git commit -m "Add changes" -a
-           echo "::set-output name=push::true"
-        fi
+            git config --local user.email ${{ secrets.GITH_EMAIL }}
+            git config --local user.name "0peters"
+            git add --all
+            if [-z "$(git status --porcelain)"]; then
+               echo "::set-output name=push::false"
+            else
+               git commit -m "Add changes" -a
+               echo "::set-output name=push::true"
+            fi
+         fi
       shell: bash
     - name: Push changes
       if: steps.commit.outputs.push == 'true'
