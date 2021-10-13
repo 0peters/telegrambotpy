@@ -1,0 +1,9 @@
+Cotação Crypto Binance:
+
++ variação no dia
+
+-3.33% BTC (Bitcoin) = R$ 308874.00
+0.98% ETH (Ethereum) = R$ 19429.95
+1.01% XRP (Ripple) = R$ 6.11
+1.05% ADA (Cardano) = R$ 11.85
+8.01% DOT (Polkadot) = R$ 196.57
