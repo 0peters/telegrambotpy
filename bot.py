@@ -81,9 +81,9 @@ for i in range(len(groups_list)):
 #f = open("test.txt", "r")
 #print(f.read()) 
 
-#text_file = open("test.txt", "w")
-#text_file.write("ok")
-#text_file.close()
+text_file = open("test.txt", "w")
+text_file.write("ok2")
+text_file.close()
 
 f = open("test.txt", "r")
 #print(f.read())
