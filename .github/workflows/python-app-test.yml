@@ -34,8 +34,8 @@ jobs:
     - name: Commit files
       id: commit
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "github-actions"
+        git config --local user.email ${{ secrets.GITH_EMAIL }}
+        git config --local user.name "0peters"
         git add --all
         if [-z "$(git status --porcelain)"]; then
            echo "::set-output name=push::false"
@@ -48,4 +48,4 @@ jobs:
       if: steps.commit.outputs.push == 'true'
       uses: ad-m/github-push-action@master
       with:
-         github_token: ${{ secrets.GITHUB_TOKEN }}
+         github_token: ${{ secrets.GITH_TOKEN }}
