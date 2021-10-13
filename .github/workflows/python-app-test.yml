@@ -34,7 +34,7 @@ jobs:
     - name: Commit files
       id: commit
       run: |
-        if [-n "$(git status -s)"]; then
+        if [-z "$(git status --porcelain)"]; then
             git config --local user.email ${{ secrets.GITH_EMAIL }}
             git config --local user.name "0peters"
             git add --all
